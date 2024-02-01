@@ -2,11 +2,14 @@
 
 
 #include "PlayerCharacter.h"
+
+// Sets default values
 #include "Camera/CameraComponent.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/CharacterMovementComponent.h"
 APlayerCharacter::APlayerCharacter()
 {
+
     //Calls Tick() every frame.
     PrimaryActorTick.bCanEverTick = true;
 
@@ -22,12 +25,14 @@ APlayerCharacter::APlayerCharacter()
 
 }
 
+// Called when the game starts or when spawned
 void APlayerCharacter::BeginPlay()
 {
     Super::BeginPlay();
     CurrentStamina = MaxStamina;
 }
 
+// Called every frame
 void APlayerCharacter::Tick(float DeltaTime)
 {
     Super::Tick(DeltaTime);
@@ -52,6 +57,7 @@ void APlayerCharacter::Tick(float DeltaTime)
     GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Yellow, StaminaString);
 }
 
+// Called to bind functionality to input
 void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
     Super::SetupPlayerInputComponent(PlayerInputComponent);
@@ -120,5 +126,4 @@ void APlayerCharacter::StopRunning()
     bIsRunning = false;
     UE_LOG(LogTemp, Warning, TEXT("Stopped Running"));
 }
-
 
