@@ -9,6 +9,8 @@ public class Island_Map : ModuleRules
 		PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 	
 		PublicDependencyModuleNames.AddRange(new string[] { "Core", "CoreUObject", "Engine", "InputCore" });
+		
+		PublicDependencyModuleNames.AddRange(new string[] { "Island_Map"});
 
 		PrivateDependencyModuleNames.AddRange(new string[] {  });
 
