@@ -19,7 +19,7 @@ APlayerCharacter::APlayerCharacter()
 
     // Initialize stamina
     MaxStamina = 100.0f;
-    StaminaDrainRate = 20.0f;
+    StaminaDrainRate = 0.0f; //set to 20 for release
     StaminaRegenRate = 10.0f;
     CurrentStamina = MaxStamina;
 
