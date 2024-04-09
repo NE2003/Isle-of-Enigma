@@ -19,7 +19,7 @@ APlayerCharacter::APlayerCharacter()
 
     // Initialize stamina
     MaxStamina = 100.0f;
-    StaminaDrainRate = 0.0f; //set to 20 for release
+    StaminaDrainRate = 20.0f; //set to 20 for release
     StaminaRegenRate = 10.0f;
     CurrentStamina = MaxStamina;
 
@@ -44,7 +44,6 @@ void APlayerCharacter::Tick(float DeltaTime)
         if (CurrentStamina <= 0.1 * MaxStamina) // Player becomes exhausted at 10% stamina
         {
             bIsRunning = false;
-            UE_LOG(LogTemp, Warning, TEXT("Player Exhausted"));
         }
     }
     else
@@ -52,9 +51,6 @@ void APlayerCharacter::Tick(float DeltaTime)
         CurrentStamina = FMath::Min(MaxStamina, CurrentStamina + StaminaRegenRate * DeltaTime);
     }
 
-    // Display stamina on screen
-    FString StaminaString = FString::Printf(TEXT("Stamina: %.2f"), CurrentStamina);
-    GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Yellow, StaminaString);
 }
 
 // Called to bind functionality to input
@@ -91,9 +87,6 @@ void APlayerCharacter::MoveForward(float InputValue)
     FVector ForwardDirection = GetActorForwardVector();
     AddMovementInput(ForwardDirection, InputValue);
 
-    // Display speed on screen
-    FString SpeedString = FString::Printf(TEXT("Speed: %.2f"), GetCharacterMovement()->Velocity.Size());
-    GEngine->AddOnScreenDebugMessage(-1, 0.1f, FColor::Yellow, SpeedString);
 }
 
 void APlayerCharacter::MoveRight(float InputValue)
