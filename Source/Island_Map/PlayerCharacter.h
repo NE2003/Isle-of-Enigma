@@ -26,6 +26,12 @@ public:
 
 protected:
 
+    UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerStats")
+    float Stamina;
+    
+    UFUNCTION(BlueprintCallable, Category = "PlayerStats")
+    float GetStamina() const { return Stamina; }
+    
     UPROPERTY(EditAnywhere)
     class UCameraComponent* Camera;
 
