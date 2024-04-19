@@ -27,17 +27,15 @@ public:
 protected:
 
     UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayerStats")
-    float Stamina;
+    float MaxStamina;
     
     UFUNCTION(BlueprintCallable, Category = "PlayerStats")
-    float GetStamina() const { return Stamina; }
+    float GetStamina() const { return MaxStamina; }
     
     UPROPERTY(EditAnywhere)
     class UCameraComponent* Camera;
 
-    // Stamina properties
-    UPROPERTY(EditAnywhere, Category = "Stamina")
-    float MaxStamina;
+
 
     UPROPERTY(EditAnywhere, Category = "Stamina")
     float CurrentStamina;
